@@ -131,5 +131,11 @@ To keep the task focused, I kept the implementation centered on the main movie f
 - **Crash Reporting with Sentry**  
   Add Sentry in non-local environments to capture crashes and important runtime errors. For a real app, this gives much better visibility than relying only on Xcode logs.
 
+- **OpenTelemetry for Request Tracking**  
+  Add OpenTelemetry around network requests so request timing, failures, and traces can be tracked across environments. This would make API issues easier to debug and gives a cleaner observability path as the app grows.
+
+- **Security Hardening**  
+  Move API keys out of the repository, manage secrets per environment, avoid logging sensitive values, and add basic secret scanning in CI. If the app later talks to a first-party backend, secure token storage and stronger transport protection would be the next steps.
+
 - **Developer Menu for Non-Prod Builds**  
   Add a simple debug menu opened by shaking the device in `Dev` and `Staging`. Useful actions would be changing the active environment, switching language, and checking which feature flags are currently enabled or disabled.
