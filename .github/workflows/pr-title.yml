@@ -1,0 +1,23 @@
+name: PR Title Check
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  check-title:
+    name: Validate PR Title
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR title format
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          if [[ ! "$PR_TITLE" =~ ^\[GM-[0-9]+\] ]]; then
+            echo "::error::PR title must start with [GM-XXX] where XXX is a number."
+            echo ""
+            echo "  Expected: [GM-123] Add movie search feature"
+            echo "  Got:      $PR_TITLE"
+            exit 1
+          fi
+          echo "✅ PR title format is valid: $PR_TITLE"
