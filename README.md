@@ -117,3 +117,19 @@ GitHub Actions runs the same checks expected locally before a PR is merged.
 | Release-Prod | GMovies-Prod | com.mahmoudfares.GMovies |
 
 Each configuration has its own app icon and TMDB token.
+
+## Next Improvements
+
+To keep the task focused, I kept the implementation centered on the main movie flows. If this app kept growing, these would be the next practical improvements:
+
+- **Localization**  
+  Add support for multiple languages and country-specific formatting. This would cover localized strings, dates, numbers, currency, and layout checks so the app feels natural in each supported market instead of only working well in English.
+
+- **Feature Flags**  
+  Add a small feature flag layer so unfinished work can be enabled in `Dev` or `Staging` without affecting `Prod`. This also makes experiments and gradual rollout safer.
+
+- **Crash Reporting with Sentry**  
+  Add Sentry in non-local environments to capture crashes and important runtime errors. For a real app, this gives much better visibility than relying only on Xcode logs.
+
+- **Developer Menu for Non-Prod Builds**  
+  Add a simple debug menu opened by shaking the device in `Dev` and `Staging`. Useful actions would be changing the active environment, switching language, and checking which feature flags are currently enabled or disabled.
