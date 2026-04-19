@@ -98,6 +98,16 @@ make test-app       # app tests only
 make lint           # SwiftLint check
 ```
 
+## CI
+
+GitHub Actions runs the same checks expected locally before a PR is merged.
+
+- `SwiftLint` runs first on Ubuntu because it is faster and cheaper than using a macOS runner for style checks.
+- Build and tests run on `macos-26` with Xcode `26.2`, which matches the app toolchain and simulator requirements.
+- The workflow generates the project with `XcodeGen`, boots an `iPhone 17` simulator, then runs package tests and app tests separately.
+- Caches are restored for Swift packages, DerivedData, and tools to keep CI runs faster.
+- If tests or snapshots fail, CI uploads logs, `.xcresult`, and failed snapshot images to make debugging easier from the PR.
+
 ## Build Configurations
 
 | Config | Scheme | Bundle ID |
