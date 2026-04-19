@@ -1,0 +1,14 @@
+// Prod.xcconfig
+// GMovies — Production Environment
+//
+// Created by Mahmoud Fares on 2026.
+// Copyright © 2026 Mahmoud Fares. All rights reserved.
+
+// Pull in per-env TMDB tokens (gitignored — see Secrets.xcconfig.example)
+#include? "Secrets.xcconfig"
+
+// Production environment uses the Prod token
+TMDB_ACCESS_TOKEN = $(TMDB_ACCESS_TOKEN_PROD)
+
+TMDB_BASE_URL = https:/$()/api.themoviedb.org/3
+TMDB_IMAGE_BASE_URL = https:/$()/image.tmdb.org/t/p/

@@ -1,0 +1,101 @@
+# .swiftlint.yml
+# GMovies — SwiftLint Configuration
+#
+# Created by Mahmoud Fares on 2026.
+# Copyright © 2026 Mahmoud Fares. All rights reserved.
+
+included:
+  - GMoviesApp
+  - Packages/MoviesCore/Sources
+  - GMoviesTests
+
+excluded:
+  - ArkanaKeys          # Generated — never lint
+  - Packages/MoviesCore/.build
+  - GMovies.xcodeproj
+
+# ── Rules ────────────────────────────────────────────────────
+opt_in_rules:
+  - array_init
+  - closure_spacing
+  - collection_alignment
+  - contains_over_first_not_nil
+  - discouraged_object_literal
+  - empty_collection_literal
+  - empty_count
+  - empty_string
+  - enum_case_associated_values_count
+  - explicit_init
+  - fallthrough
+  - fatal_error_message
+  - file_header
+  - first_where
+  - flatmap_over_map_reduce
+  - identical_operands
+  - joined_default_parameter
+  - last_where
+  - legacy_multiple
+  - literal_expression_end_indentation
+  - lower_acl_than_parent
+  - modifier_order
+  - multiline_arguments
+  - multiline_function_chains
+  - operator_usage_whitespace
+  - overridden_super_call
+  - prefer_self_type_over_type_of_self
+  - redundant_nil_coalescing
+  - sorted_first_last
+  - toggle_bool
+  - trailing_closure
+  - unneeded_parentheses_in_closure_argument
+  - yoda_condition
+
+analyzer_rules:
+  - unused_import
+
+disabled_rules:
+  - todo                  # Allow TODO comments during development
+  - trailing_whitespace   # Xcode handles this
+
+# ── Thresholds ───────────────────────────────────────────────
+line_length:
+  warning: 120
+  error: 200
+  ignores_urls: true
+  ignores_comments: true
+
+file_length:
+  warning: 400
+  error: 600
+
+function_body_length:
+  warning: 60
+  error: 80
+
+type_body_length:
+  warning: 250
+  error: 350
+
+# ── File Header ───────────────────────────────────────────────
+file_header:
+  required_pattern: |
+                    \/\/  .*\.swift
+                    \/\/  GMovies.*
+                    \/\/
+                    \/\/  Created by Mahmoud Fares on \d{4}\.
+                    \/\/  Copyright © \d{4} Mahmoud Fares\. All rights reserved\.
+
+# ── Naming ───────────────────────────────────────────────────
+type_name:
+  min_length: 3
+  max_length: 50
+
+identifier_name:
+  min_length: 2
+  max_length: 50
+  excluded:
+    - id
+    - vm
+    - to
+    - x
+    - y

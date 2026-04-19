@@ -1,0 +1,15 @@
+// Dev.xcconfig
+// GMovies — Development Environment
+//
+// Created by Mahmoud Fares on 2026.
+// Copyright © 2026 Mahmoud Fares. All rights reserved.
+
+// Pull in per-env TMDB tokens (gitignored — see Secrets.xcconfig.example)
+// The `?` makes the include optional so CI/docs builds don't hard-fail.
+#include? "Secrets.xcconfig"
+
+// Dev environment uses the Dev token
+TMDB_ACCESS_TOKEN = $(TMDB_ACCESS_TOKEN_DEV)
+
+TMDB_BASE_URL = https:/$()/api.themoviedb.org/3
+TMDB_IMAGE_BASE_URL = https:/$()/image.tmdb.org/t/p/
