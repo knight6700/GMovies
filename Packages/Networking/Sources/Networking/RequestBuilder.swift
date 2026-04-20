@@ -32,6 +32,12 @@ private extension RequestBuilder {
               var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: false)
         else { throw .invalidURL }
 
+        guard let scheme = components.scheme,
+              !scheme.isEmpty,
+              let host = components.host,
+              !host.isEmpty
+        else { throw .invalidURL }
+
         components.path = joinPath(base: components.path, endpoint: request.path)
 
         if let query = request.query {
